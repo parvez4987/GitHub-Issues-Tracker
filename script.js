@@ -130,8 +130,8 @@ function applyFiltersAndRender() {
         
        
         const statusIcon = isClosed 
-            ? '<img src="assets/Closed- Status .png" alt="Closed" class="w-5 h-5">' 
-            : '<img src="assets/Open-Status.png" alt="Open" class="w-5 h-5">';
+            ? '<img src="logos/Closed- Status .png" alt="Closed" class="w-5 h-5">' 
+            : '<img src="logos/Open-Status.png" alt="Open" class="w-5 h-5">';
 
         const card = document.createElement('div');
         card.className = `bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow cursor-pointer border border-gray-200 border-t-4 ${borderClass} flex flex-col h-full overflow-hidden`;
