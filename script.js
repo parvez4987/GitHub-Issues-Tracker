@@ -52,11 +52,27 @@ async function fetchIssues() {
 
 
 //searching function
+// async function searchIssues(query) {
+//     if(!query) return fetchIssues();
+//     toggleSpinner(true);
+//     try {
+//         const response = awaitfetch(`${URL}/issues/search?q=${query}}`);
+//         const data = await response.json();
+//         allIssues = Array.isArray(data) ? data : (data.data || []);
+//         applyFiltersAndRender();
+//     } catch (error) {
+//         console.error("Search error:", error);
+//     } finally {
+//         toggleSpinner(false);
+//     }
+// }
+
+
 async function searchIssues(query) {
     if(!query) return fetchIssues();
     toggleSpinner(true);
     try {
-        const response = awaitfetch(`${URL}/issues/search?q=${query}}`);
+        const response = await fetch(`${URL}/issues/search?q=${query}`);
         const data = await response.json();
         allIssues = Array.isArray(data) ? data : (data.data || []);
         applyFiltersAndRender();
