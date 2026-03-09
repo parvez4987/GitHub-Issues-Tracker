@@ -6,13 +6,22 @@
     <title>GitHub Issues Tracker</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        .loader { border: 4px solid #f3f3f3; border-top: 4px solid #5832FA; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .desc-scroll::-webkit-scrollbar { width: 4px; }
+        .desc-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    </style>
+
 </head>
+
 <body class="bg-gray-50 text-gray-800 font-sans min-h-screen flex flex-col">
+
     <div id="spinner" class="fixed inset-0 bg-white/80 z-[100] flex-col items-center justify-center hidden">
         <div class="loader mb-4"></div>
         <p class="text-[#5832FA] font-bold">Loading data...</p>
     </div>
-
 
     <div id="login-page" class="flex flex-col items-center justify-center flex-grow">
         <div class="bg-white p-8 rounded-xl shadow-md w-full max-w-md text-center border">
@@ -29,9 +38,9 @@
                     <label class="block text-sm font-semibold text-gray-700 mb-1">Password</label>
                     <input type="password" id="password" class="w-full border rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-[#5832FA]" placeholder="Enter password" value="admin123">
                 </div>
-                <button type="submit" class="w-full bg-[#5832FA] text-white font-bold py-3 rounded-lg hover:bg-purple-700 transition">Sign In</button>
+                <button type="submit" class="w-full bg-[#5832FA] text-white font-bold py-3 rounded-lg hover:bg-purple-700 transition">Log In</button>
             </form>
-            <hr>
+
             <div class="mt-6 border-t pt-4">
                 <p class="text-xs text-gray-400 mb-2 font-semibold uppercase">Demo Credentials</p>
                 <div class="bg-gray-100 p-3 rounded-lg text-sm text-gray-700 text-center">
@@ -42,7 +51,6 @@
             <p id="login-error" class="text-red-500 text-sm mt-3 hidden font-semibold">Invalid credentials. Try again.</p>
         </div>
     </div>
-
 
     <div id="dashboard-page" class="hidden flex-grow flex flex-col">
         <nav class="bg-white border-b px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
@@ -80,11 +88,17 @@
             </div>
 
             <div id="issues-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            </div>
+                </div>
         </main>
+
+
     </div>
 
+        <dialog id="issue-modal" class="backdrop:bg-black/50 p-0 rounded-2xl shadow-2xl w-full max-w-3xl border-0">
+        <div id="modal-content" class="p-8 bg-white relative">
+            </div>
+    </dialog>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
